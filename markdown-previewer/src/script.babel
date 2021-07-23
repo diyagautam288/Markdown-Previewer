@@ -1,0 +1,46 @@
+ const placeholder = `
+**Welcome in bold**
+# h1
+## h2
+[freecodecamp](https://www.freecodecamp.org)
+Heres some code, \`<div></div>\`, between 2 backticks.
+\`\`\`
+let a=1;
+let b=3;
+let c=a*b;
+\`\`\`
+- list item1
+- list item2
+- list item3
+> Block Quotes!
+![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
+`;
+class App extends React.Component
+{
+  state={
+    markdown: placeholder,
+  }
+  handleChange =(e)=>{
+    this.setState({
+      markdown:e.target.value
+    });
+  }
+  render()
+  {
+    return (
+      <div className="row d-flex justify-content-center">
+        <div className="col-8 ">
+          <h2>EDITOR</h2>
+          <textarea id="editor" className="form-control"value={this.state.markdown} onChange={this.handleChange}/>
+        </div>
+        <div id="preview" className="col-8">
+          <h2>RESULT</h2>
+          <div  className="preview rounded" dangerouslySetInnerHTML={{
+        __html: marked(this.state.markdown)
+      }}/> 
+        </div>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<App/>,document.getElementById('app'));

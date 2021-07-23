@@ -1,0 +1,19 @@
+body{
+  background-color:#b1cbbb;
+}
+.preview{
+  background-color:#fff;
+  margin-bottom: 80px;
+}
+.preview img{
+  max-width:100%;
+}
+h2{
+  margin-top:80px;
+  text-align:center;
+}
+#editor, .preview{
+  min-height:400px;
+  padding:10px 40px;
+  min-width:300px;
+}
